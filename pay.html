@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>爱刷步支付平台</title>
+<style>
+#weixinStyle{ width:100%; display:none; text-align:center; font-size:16px; padding-top:50px;}
+img{ width:100%;height:auto;}
+</style>
+</head>
+
+<body>
+<div id="weixinStyle">
+<img src="/weixin.jpg" alt="微信打开"/>
+</div>
+
+<script type="text/javascript">
+    //获取id为weixinStyle的div对象
+    var weixin=document.getElementById("weixinStyle");
+    //网页加载后执行函数
+    window.onload=function(){
+        //判断是否为微信内核 是 则显示引导图标 否则 不显示跳转
+        if(isWeixin()){
+            //是微信打开显示提示信息
+            weixin.style.display="block";   
+        }else{
+            //是非微信打开直接跳转支付平台
+            location.replace("https://www.2faka.com/item/19C7474B5161");//这里支付链接 
+        }
+    }
+
+    //这个函数用来判断当前浏览器是否微信内置浏览器，是微信返回true，不是微信返回false
+    function isWeixin(){
+        var WxObj=window.navigator.userAgent.toLowerCase();
+        if(WxObj.match(/microMessenger/i)=='micromessenger'){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
